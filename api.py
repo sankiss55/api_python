@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import easyocr
 import cv2
 import numpy as np
+import os  # Asegúrate de importar el módulo os para acceder a la variable de entorno
 
 app = Flask(__name__)
 
@@ -37,4 +38,6 @@ def ocr_text():
         return jsonify({'error': f'Error al realizar OCR: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Usar la variable de entorno PORT asignada por Railway
+    port = int(os.environ.get("PORT", 5000))  # Usa el puerto de Railway, o 5000 como fallback
+    app.run(debug=True, host="0.0.0.0", port=port)
