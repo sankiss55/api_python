@@ -2,3 +2,4 @@ flask
 easyocr
 opencv-python
 numpy
+uvicorn
