@@ -1,4 +1,0 @@
-flask
-easyocr
-opencv-python
-numpy
